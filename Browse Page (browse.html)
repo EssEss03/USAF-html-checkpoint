@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/browse.css">
+  <title>GMDB - Browse Movies</title>
+</head>
+<body>
+  <header>
+    <h1>GMDB</h1>
+    <nav class="navbar">
+      <ul>
+        <li><a href="browse.html">Browse Movies</a></li>
+        <li><a href="index.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="movie-grid">
+      <div class="movie">
+        <a href="movie.html">
+          <img src="images/movie1.jpg" alt="Movie 1">
+          <p>Movie Title 1</p>
+        </a>
+      </div>
+      <div class="movie">
+        <a href="movie.html">
+          <img src="images/movie2.jpg" alt="Movie 2">
+          <p>Movie Title 2</p>
+        </a>
+      </div>
+      <!-- Add more movie items -->
+    </div>
+  </main>
+</body>
+</html>
