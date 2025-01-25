@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header with Navigation and Search Bar */
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    header button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    header button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Movie Grid */
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .movie-card {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .movie-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .movie-card p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="index.html">Login</a>
+    </nav>
+    <div>
+      <input type="text" id="searchBar" placeholder="Search for a movie">
+      <button onclick="filterMovies()">Search</button>
+    </div>
+    <button id="backButton" class="hidden" onclick="showAllMovies()">Back to Results</button>
+  </header>
+  <main>
+    <div class="movie-grid" id="movieGrid">
+      <!-- Movie Cards -->
+      <div class="movie-card" data-title="Coming To America" data-details="movie-details.html?movie=ComingtoAmerica">
+        <img src="images/ComingToAmerica.jpg" alt="Coming To America">
+        <p>Coming To America</p>
+      </div>
+      <div class="movie-card" data-title="White Chicks" data-details="movie-details.html?movie=WhiteChicks">
+        <img src="images/WhiteChicks.jpg" alt="White Chicks">
+        <p>White Chicks</p>
+      </div>
+      <div class="movie-card" data-title="Miss Congeniality" data-details="movie-details.html?movie=MissCongeniality">
+        <img src="images/MissCongeniality.jpg" alt="Miss Congeniality">
+        <p>Miss Congeniality</p>
+      </div>
+      <div class="movie-card" data-title="A Madea Family Funeral" data-details="movie-details.html?movie=AMadeaFamilyFuneral">
+        <img src="images/AMadeaFamilyFuneral.jpg" alt="A Madea Family Funeral">
+        <p>A Madea Family Funeral</p>
+      </div>
+      <div class="movie-card" data-title="Friday" data-details="movie-details.html?movie=Friday">
+        <img src="images/Friday.jpg" alt="Friday">
+        <p>Friday</p>
+      </div>
+      <div class="movie-card" data-title="She's All That" data-details="movie-details.html?movie=She'sAllThat">
+        <img src="images/She'sAllThat.jpg" alt="She's All That">
+        <p>She's All That</p>
+      </div>
+      <div class="movie-card" data-title="Rush Hour" data-details="movie-details.html?movie=RushHour">
+        <img src="images/RushHour.jpg" alt="Rush Hour">
+        <p>Rush Hour</p>
+      </div>
+      <div class="movie-card" data-title="Brides Maids" data-details="movie-details.html?movie=BridesMaids">
+        <img src="images/BridesMaids.jpg" alt="Brides Maids">
+        <p>Brides Maids</p>
+      </div>
+      <div class="movie-card" data-title="Bad Boys" data-details="movie-details.html?movie=BadBoys">
+        <img src="images/BadBoys.jpg" alt="Bad Boys">
+        <p>Bad Boys</p>
+      </div>
+      <div class="movie-card" data-title="Black Panther" data-details="movie-details.html?movie=BlackPanther">
+        <img src="images/BlackPanther.jpg" alt="Black Panther">
+        <p>Black Panther</p>
+      </div>
+      <div class="movie-card" data-title="John Wick" data-details="movie-details.html?movie=JohnWick">
+        <img src="images/JohnWick.jpg" alt="John Wick">
+        <p>John Wick</p>
+      </div>
+      <div class="movie-card" data-title="The Equalizer" data-details="movie-details.html?movie=TheEqualizer">
+        <img src="images/TheEqualizer.jpg" alt="The Equalizer">
+        <p>The Equalizer</p>
+      </div>
+      <div class="movie-card" data-title="The Killer" data-details="movie-details.html?movie=TheKiller">
+        <img src="images/TheKiller.jpg" alt="The Killer">
+        <p>The Killer</p>
+      </div>
+      <div class="movie-card" data-title="The Beekeeper" data-details="movie-details.html?movie=TheBeekeeper">
+        <img src="images/TheBeekeeper.jpg" alt="The Beekeeper">
+        <p>The Beekeeper</p>
+      </div>
+      <div class="movie-card" data-title="Violent Night" data-details="movie-details.html?movie=ViolentNight">
+        <img src="images/ViolentNight.jpg" alt="Violent Night">
+        <p>Violent Night</p>
+      </div>
+      <div class="movie-card" data-title="Monkey Man" data-details="movie-details.html?movie=MonkeyMan">
+        <img src="images/MonkeyMan.jpg" alt="Monkey Man">
+        <p>Monkey Man</p>
+      </div>
+      <div class="movie-card" data-title="Fall Guy" data-details="movie-details.html?movie=FallGuy">
+        <img src="images/FallGuy.jpg" alt="Fall Guy">
+        <p>Fall Guy</p>
+      </div>
+      <div class="movie-card" data-title="Home Alone" data-details="movie-details.html?movie=HomeAlone">
+        <img src="images/HomeAlone.jpg" alt="Home Alone">
+        <p>Home Alone</p>
+      </div>
+      <div class="movie-card" data-title="Lift" data-details="movie-details.html?movie=Lift">
+        <img src="images/Lift.jpg" alt="Lift">
+        <p>Lift</p>
+      </div>
+      <div class="movie-card" data-title="Daddy Day Care" data-details="movie-details.html?movie=DaddyDayCare">
+        <img src="images/DaddyDayCare.jpg" alt="Daddy Day Care">
+        <p>Daddy Day Care</p>
+      </div>
+    </div>
+  </main>
+  <script>
+    const movieGrid = document.getElementById('movieGrid');
+    const searchBar = document.getElementById('searchBar');
+    const backButton = document.getElementById('backButton');
+
+    function filterMovies() {
+      const query = searchBar.value.toLowerCase();
+      const movieCards = document.querySelectorAll('.movie-card');
+
+      movieCards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        if (title.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      backButton.classList.remove('hidden');
+    }
+
+    function showAllMovies() {
+      const movieCards = document.querySelectorAll('.movie-card');
+
+      movieCards.forEach(card => card.classList.remove('hidden'));
+      backButton.classList.add('hidden');
+      searchBar.value = '';
+    }
+
+    // Add click event to navigate to details page
+    const movieCards = document.querySelectorAll('.movie-card');
+    movieCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const detailsPage = card.dataset.details;
+        window.location.href = detailsPage;
+      });
+    });
+  </script>
+</body>
+</html>
