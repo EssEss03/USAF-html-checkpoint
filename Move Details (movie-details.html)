@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Movie Details */
+    .movie-details {
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .movie-details a {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .movie-details a:hover {
+      text-decoration: underline;
+    }
+
+    .movie-details h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .movie-details img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    .movie-details p {
+      margin: 10px 0;
+    }
+
+    .movie-details textarea {
+      width: 100%;
+      height: 100px;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .movie-details button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .movie-details button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="movie-details">
+  <a href="homepage.html">Back to results</a>
+  <h1 id="movieTitle">Movie Title</h1>
+  <img id="movieImage" src="" alt="Movie Image">
+  <p id="releaseDate">Released: </p>
+  <p id="genre">Genre: </p>
+  <p id="synopsis">Synopsis: </p>
+  <textarea placeholder="Leave a comment"></textarea>
+  <button>Submit</button>
+</div>
+
+<script>
+  // Sample movie data
+  const movieData = {
+    "ComingtoAmerica": {
+      title: "Coming to America",
+      releaseDate: "June 29, 1988",
+      genre: "Comedy, Romance",
+      synopsis: "A pampered African prince travels to America in search of a bride who will love him for who he is, not what he has.",
+      image: "images/ComingToAmerica.jpg"
+    },
+    "Friday": {
+      title: "Friday",
+      releaseDate: "April 26, 1995",
+      genre: "Buddy Comedy, Drama",
+      synopsis: "Craig and Smokey must come up with $200 they owe a local bully, or there won't be a Saturday.",
+      image: "images/Friday.jpg"
+    },
+    "DaddyDayCare": {
+      title: "Daddy Day Care",
+      releaseDate: "May 9, 2003",
+      genre: "Family Comedy",
+      synopsis: "Two men lose their jobs and start a day care center to make ends meet.",
+      image: "images/DaddyDayCare.jpg"
+    },
+    "WhiteChicks": {
+      title: "White Chicks",
+      releaseDate: "June 23, 2004",
+      genre: "Comedy, Crime",
+      synopsis: "Two FBI agents go undercover as white women to investigate a kidnapping plot.",
+      image: "images/WhiteChicks.jpg"
+    },
+    "MissCongeniality": {
+      title: "Miss Congeniality",
+      releaseDate: "December 22, 2000",
+      genre: "Comedy, Crime",
+      synopsis: "An FBI agent goes undercover as a beauty pageant contestant to prevent a bombing plot.",
+      image: "images/MissCongeniality.jpg"
+    },
+    "AMadeaFamilyFuneral": {
+      title: "A Madea Family Funeral",
+      releaseDate: "March 1, 2019",
+      genre: "Comedy, Drama",
+      synopsis: "A joyous family reunion becomes a hilarious nightmare as Madea and her crew travel to backwoods Georgia.",
+      image: "images/AMadeaFamilyFuneral.jpg"
+    },
+    "She'sAllThat": {
+      title: "She's All That",
+      releaseDate: "January 29, 1999",
+      genre: "Comedy, Romance",
+      synopsis: "A high school jock makes a bet that he can turn an unattractive girl into the school's prom queen.",
+      image: "images/She'sAllThat.jpg"
+    },
+    "RushHour": {
+      title: "Rush Hour",
+      releaseDate: "September 18, 1998",
+      genre: "Comedy, Action",
+      synopsis: "A loyal and by-the-book Hong Kong inspector teams up with a reckless LAPD detective to rescue a kidnapped girl.",
+      image: "images/RushHour.jpg"
+    },
+    "Bridesmaids": {
+      title: "Bridesmaids",
+      releaseDate: "May 13, 2011",
+      genre: "Comedy",
+      synopsis: "Competition between the maid of honor and a bridesmaid over who is the bride's best friend threatens to upend a wedding.",
+      image: "images/Bridesmaid.jpg"
+    },
+    "BadBoys": {
+      title: "Bad Boys",
+      releaseDate: "April 7, 1995",
+      genre: "Comedy, Action",
+      synopsis: "Two Miami detectives must protect a witness to a murder while investigating a case of stolen heroin.",
+      image: "images/BadBoys.jpg"
+    },
+    "BlackPanther": {
+      title: "Black Panther",
+      releaseDate: "February 16, 2018",
+      genre: "Action, Adventure",
+      synopsis: "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future.",
+      image: "images/BlackPanther.jpg"
+    },
+    "JohnWick": {
+      title: "John Wick",
+      releaseDate: "October 24, 2014",
+      genre: "Action, Thriller",
+      synopsis: "An ex-hitman comes out of retirement to track down the gangsters that killed his dog and took everything from him.",
+      image: "images/Johnwick.jpg"
+    },
+    "TheEqualizer": {
+      title: "The Equalizer",
+      releaseDate: "September 26, 2014",
+      genre: "Action, Crime",
+      synopsis: "A man who believes he has put his mysterious past behind him seeks justice for the powerless.",
+      image: "images/TheEqualizer.jpg"
+    },
+    "TheKiller": {
+      title: "The Killer",
+      releaseDate: "November 10, 2023",
+      genre: "Action, Thriller",
+      synopsis: "An assassin battles his employers and himself in pursuit of an ultimate revenge mission.",
+      image: "images/TheKiller.jpg"
+    },
+    "TheBeekeeper": {
+      title: "The Beekeeper",
+      releaseDate: "January 12, 2024",
+      genre: "Action, Thriller",
+      synopsis: "A man seeks revenge on those who deceived his loved ones, revealing his dark past.",
+      image: "images/TheBeekeeper.jpg"
+    },
+    "ViolentNight": {
+      title: "Violent Night",
+      releaseDate: "December 2, 2022",
+      genre: "Comedy, Action",
+      synopsis: "When a team of mercenaries attacks a wealthy family's estate, Santa Claus must step in to save the day.",
+      image: "images/ViolentNight.jpg"
+    },
+    "MonkeyMan": {
+      title: "Monkey Man",
+      releaseDate: "April 05, 2024",
+      genre: "Action, Drama",
+      synopsis: "A recently released prisoner seeks revenge and redemption against those who wronged him in Mumbai.",
+      image: "images/MonkeyMan.jpg"
+    },
+    "FallGuy": {
+      title: "Fall Guy",
+      releaseDate: "March 1, 2024",
+      genre: "Comedy, Action",
+      synopsis: "A stuntman who left Hollywood returns to action to rescue his kidnapped former co-star.",
+      image: "images/FallGuy.jpg"
+    },
+    "HomeAlone": {
+      title: "Home Alone",
+      releaseDate: "November 16, 1990",
+      genre: "Comedy, Family",
+      synopsis: "An eight-year-old boy must defend his home against two burglars when he's accidentally left home alone.",
+      image: "images/HomeAlone.jpg"
+    },
+    "Lift": {
+      title: "Lift",
+      releaseDate: "August 15, 2024",
+      genre: "Comedy, Action",
+      synopsis: "A heist crew attempts to steal $100 million worth of gold aboard an international flight.",
+      image: "images/Lift.jpg"
+    }
+  };
+
+  // Get movie ID from URL query parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const movieId = urlParams.get('movie');
+
+  // Populate movie details if movieId exists in movieData
+  if (movieId && movieData[movieId]) {
+    const movie = movieData[movieId];
+    document.getElementById('movieTitle').textContent = movie.title;
+    document.getElementById('movieImage').src = movie.image;
+    document.getElementById('movieImage').alt = movie.title;
+    document.getElementById('releaseDate').textContent = `Released: ${movie.releaseDate}`;
+    document.getElementById('genre').textContent = `Genre: ${movie.genre}`;
+    document.getElementById('synopsis').textContent = movie.synopsis;
+  } else {
+    // If movie not found, show an error message
+    document.querySelector('.movie-details').innerHTML = '<p>Movie not found.</p>';
+  }
+</script>
+</body>
+</html>
