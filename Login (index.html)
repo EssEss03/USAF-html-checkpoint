@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMDB Login Page</title>
+  <style>
+    /* General styling */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* Navigation bar styling */
+    nav {
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+      margin-right: 20px; /* Add space between the logo and links */
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto; /* Push the search bar to the right */
+    }
+
+    .search-container input[type="text"] {
+      padding: 5px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+    }
+
+    .search-container button {
+      padding: 5px 15px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      background-color: #f1c40f;
+      color: black;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-container button:hover {
+      background-color: #d4ac0d;
+    }
+
+    /* Login container styling */
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      margin: 50px auto;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      font-size: 14px;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+
+    form input {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    form button {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+<nav>
+  <div class="logo">GMDB</div>
+  <ul>
+    <li><a href="homepage.html">Home</a></li>
+    <li><a href="index.html">Login</a></li>
+  </ul>
+  <div class="search-container">
+    <input type="text" placeholder="Search">
+    <button>Search</button>
+  </div>
+</nav>
+  
+  <!-- Login Container -->
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
